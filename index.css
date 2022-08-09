@@ -1,6 +1,6 @@
 body {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .generallist {
@@ -9,5 +9,5 @@ body {
 }
 
 #weeklyreading {
-    grid-column: 3/4;
+    grid-column: 3/5;
 }
