@@ -1,0 +1,13 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.generallist {
+    grid-column: 1/2;
+    background-color: black;
+}
+
+#weeklyreading {
+    grid-column: 3/4;
+}
