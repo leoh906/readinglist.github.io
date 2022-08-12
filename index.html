@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <section id="large_header">
+        <h2 class="hello_greet">
+            Reading List for <input type="text" id="user_name" placeholder="Insert name">
+        </h2>
+    </section>
 <container id="generallist">
 <div id="quicklinks">
     <h1>Quick Links</h1>
@@ -20,7 +25,36 @@
 
 </div>
 
-    <div id="general_knowledge">
+<section id="creation_tools">
+    <h3>Add to Reading List:</h3>
+    <form id="creation_form">
+        <input type="url" placeholder="Paste link" name="links" id="my_link"/>
+        <input type="text" placeholder="Name of Link" name="link_name" id="link_name"/>
+        <input type="submit" value="Add Item"></form>
+    </form>
+</section>
+
+<section>
+    <h2>My Reading List:</h2>
+    <div id="thingsinList"></div>
+</section>
+
+
+
+
+
+
+
+
+
+<script src="index.js"></script>
+
+
+
+
+
+
+    <!-- <div id="general_knowledge">
         <h1>General Knowledge</h1>
         <a href="https://xyproblem.info/" target="_blank">The xy problem</a><br>
         <a href="https://www.tagalog.com/lessons/" target="_blank">Tagalog Lessons</a><br>
@@ -61,7 +95,7 @@
 
 <container id="weeklyreading">
     <h1>Reading List - Week of 8/8/21</h1>
-</container>
+</container> -->
 
     
 </body>
