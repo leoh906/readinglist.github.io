@@ -3,7 +3,7 @@ a {
     text-decoration: none;
 }
 
-a :visited {
+a:visited {
     color: aqua;
     text-decoration: none;
 }
@@ -11,4 +11,8 @@ a :visited {
 #user_name {
     text-decoration: none;
     border-style: none;
+}
+
+ol {
+    list-style: none;
 }
