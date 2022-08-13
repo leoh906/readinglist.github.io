@@ -3,10 +3,7 @@ window.addEventListener('load', () => {
 listofItems = JSON.parse(localStorage.getItem('listofItems')) || [];
 const userInput = document.querySelector('#user_name');
 const newForm = document.querySelector('#creation_form')
-const linkInput = document.querySelector('#my_link');
-const linkName = document.querySelector('#link_name');
-
-const userName = localStorage.getItem('username') || ' ';
+const userName = localStorage.getItem('userName') || '';
 
 userInput.value = userName;
 
@@ -27,7 +24,7 @@ newForm.addEventListener('submit', e => {
         createdAt: new Date().getTime()
     }
     listofItems.push(item);
-    localStorage.setItem('URL',JSON.stringify(item))
+    localStorage.setItem('URL',JSON.stringify(item));
     e.target.reset();
 
     DisplayList()
@@ -40,26 +37,38 @@ DisplayList()
 
 // Create a function that show the reading list
 function DisplayList () {
-    const wholeList = document.getElementById('thingsinList')
+    const wholeList = document.querySelector('#thingsinList')
+    wholeList.innerHTML = '';
+
     // Display the list
-    listofItems.forEach(item => {
-        const newItem = document.createElement('div')
-        newItem.classList.add('new-Item')
+    listofItems.forEach(thing => {
+        const newItem = document.createElement('div');
+        newItem.classList.add('new-item');
+       
         // Create a const that makes the creates an <a> tag
         const newLink = document.createElement('a')
         const deleteButton = document.createElement('button')
-        newLink.href = item.linkURL;                          
- // Use encode URI to convert the String to a URL
+        deleteButton.innerHTML = '<span class="material-symbols-outlined">delete</span>'
+        newLink.href = thing.linkURL;                          
     // Ensure that the new target leads to a blank page
         newLink.target = '_blank';
-        newLink.innerHTML = item.linkName;
+        newLink.innerHTML = thing.linkName;
 
         wholeList.appendChild(newLink)
+        wholeList.appendChild(deleteButton)
 
-    });
+       
+        deleteButton.addEventListener('click', e => {
+            listofItems = listofItems.filter(t => t != thing);
+            localStorage.setItem('URL', JSON.stringify(listofItems))
+            DisplayList()
+        })  // End of the deleteButton event Listener  
+        
+    })
+} // End of DisplayList function
 
-   
-}
+
+
 
 
 
