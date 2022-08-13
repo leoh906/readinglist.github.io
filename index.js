@@ -1,9 +1,10 @@
 window.addEventListener('load', () => {
 
-listofItems = JSON.parse(localStorage.getItem('listofItems')) || [];
+listofItems = JSON.parse(localStorage.getItem('URL')) || [];
 const userInput = document.querySelector('#user_name');
 const newForm = document.querySelector('#creation_form')
 const userName = localStorage.getItem('userName') || '';
+const listItem = localStorage.getItem('URL') || '';
 
 userInput.value = userName;
 
@@ -24,7 +25,8 @@ newForm.addEventListener('submit', e => {
         createdAt: new Date().getTime()
     }
     listofItems.push(item);
-    localStorage.setItem('URL',JSON.stringify(item));
+
+    localStorage.setItem('URL',JSON.stringify(listofItems));
     e.target.reset();
 
     DisplayList()
@@ -60,7 +62,7 @@ function DisplayList () {
        
         deleteButton.addEventListener('click', e => {
             listofItems = listofItems.filter(t => t != thing);
-            localStorage.setItem('URL', JSON.stringify(listofItems))
+            localStorage.removeItem('URL', JSON.stringify(listofItems))
             DisplayList()
         })  // End of the deleteButton event Listener  
         
