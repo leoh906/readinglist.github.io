@@ -12,48 +12,53 @@ userInput.value = userName;
 
 userInput.addEventListener('change', (e) => {
     localStorage.setItem('userName', e.target.value);
-})
+}) // ends the userInput event listener
 
-newForm.addEventListener('change', (e) => {
-e.preventDefault();
+// Create an event listener that reads when something is inputted via the form
+newForm.addEventListener('submit', e => {
+    // Use the prevent default method to stop refreshing the page after every submission
+    e.preventDefault();
 
-const todo = {
-    content: e.target.elements.content.value,
-	category: e.target.elements.category.value,
-	done: false,
-	createdAt: new Date().getTime()
-}
+    const item = {
+        linkName: e.target.elements.link_name.value,
+        // Line 23 Breakdown: target = form we submitted, elements = an element in the statement (name),
+        // linkName = the name "link_name", value = gets the actual value
+        linkURL: e.target.elements.links.value,
+        createdAt: new Date().getTime()
+    }
+    listofItems.push(item);
+    localStorage.setItem('URL',JSON.stringify(item))
+    e.target.reset();
 
-listItems.push(todo);
-localStorage.setItem('listItems',JSON.stringify(todos));
+    DisplayList()
 
-e.target.removeEventListener();
+}) // ends the new form event listener
+
 DisplayList()
 
-
-})
+}) // Ends the window.addEventListener thing
 
 // Create a function that show the reading list
 function DisplayList () {
-    const thingsinList = document.querySelector('#thingsinList')
-    thingsinList.innerHTML = "";
-
-    listItems.forEach(listItems => {
-        const formOutline = document.createElement('div');
-        formOutline.classList.add('list-item');
-
-        // Things to create:
-        // Create an element that holds the link, the a tag
-        const content = document.createElement('div')
-        const link = document.createElement('a')
+    const wholeList = document.getElementById('thingsinList')
+    // Display the list
+    listofItems.forEach(item => {
+        const newItem = document.createElement('div')
+        newItem.classList.add('new-Item')
+        // Create a const that makes the creates an <a> tag
+        const newLink = document.createElement('a')
         const deleteButton = document.createElement('button')
-        // Create the href value 
-        link.href = linkInput;
-        link.target = '_blank';
-        // Create the Name of the Link
-        link.innerHTML = linkName;
+        newLink.href = item.linkURL;                          
+ // Use encode URI to convert the String to a URL
+    // Ensure that the new target leads to a blank page
+        newLink.target = '_blank';
+        newLink.innerHTML = item.linkName;
 
-    })
+        wholeList.appendChild(newLink)
+
+    });
+
+   
 }
 
 
@@ -68,4 +73,3 @@ function DisplayList () {
 
 
 
-}) // Ends the window.addEventListener thing
