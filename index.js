@@ -1,17 +1,17 @@
 window.addEventListener('load', () => {
 
-list = JSON.parse(localStorage.getItem('listItems')) || [];
-const userInput = document.querySelector('.user_name');
-const newForm = document.querySelector('.creation_form')
-const linkInput = document.querySelector('.my_link');
-const linkName = document.querySelector('.link_name');
+listofItems = JSON.parse(localStorage.getItem('listofItems')) || [];
+const userInput = document.querySelector('#user_name');
+const newForm = document.querySelector('#creation_form')
+const linkInput = document.querySelector('#my_link');
+const linkName = document.querySelector('#link_name');
 
 const userName = localStorage.getItem('username') || ' ';
 
 userInput.value = userName;
 
 userInput.addEventListener('change', (e) => {
-    localStorage.setItem('userName',e.target.value);
+    localStorage.setItem('userName', e.target.value);
 })
 
 newForm.addEventListener('change', (e) => {
@@ -35,7 +35,7 @@ DisplayList()
 
 // Create a function that show the reading list
 function DisplayList () {
-    const thingsinList = document.querySelector('.thingsinList')
+    const thingsinList = document.querySelector('#thingsinList')
     thingsinList.innerHTML = "";
 
     listItems.forEach(listItems => {
