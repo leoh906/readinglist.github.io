@@ -44,6 +44,7 @@ function DisplayList () {
 
     // Display the list
     listofItems.forEach(thing => {
+        const listValue = document.createElement('li')
         const newItem = document.createElement('div');
         newItem.classList.add('new-item');
        
@@ -56,8 +57,12 @@ function DisplayList () {
         newLink.target = '_blank';
         newLink.innerHTML = thing.linkName;
 
-        wholeList.appendChild(newLink)
-        wholeList.appendChild(deleteButton)
+        wholeList.appendChild(listValue)
+        
+
+
+        listValue.appendChild(newLink)
+        listValue.appendChild(deleteButton)
 
        
         deleteButton.addEventListener('click', e => {
