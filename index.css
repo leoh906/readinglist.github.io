@@ -1,12 +1,32 @@
+body {
+    /* text-align: center; */
+    background-color: aqua;
+}
+
+#homepage_header {
+    text-align: center;
+}
+
+
+#user_name {
+    border-style: none;
+    background-color: aqua;
+    font-size: large;
+    font-weight: bold;
+}
+
+h1 {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+}
+
+
 a {
     color: black;
     text-decoration: none;
 }
 
-
-
-#user_name {
-    text-decoration: none;
+#username :hover {
     border-style: none;
 }
 

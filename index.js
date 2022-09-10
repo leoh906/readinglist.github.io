@@ -1,10 +1,9 @@
 window.addEventListener('load', () => {
-
-listofItems = JSON.parse(localStorage.getItem('URL')) || [];
+// This will open the previous items located in localstorage
+listofItems = JSON.parse(localStorage.getItem('userName')) || [];
 const userInput = document.querySelector('#user_name');
 const newForm = document.querySelector('#creation_form')
 const userName = localStorage.getItem('userName') || '';
-const listItem = localStorage.getItem('URL') || '';
 
 userInput.value = userName;
 
@@ -21,7 +20,7 @@ newForm.addEventListener('submit', e => {
         linkName: e.target.elements.link_name.value,
         // Line 23 Breakdown: target = form we submitted, elements = an element in the statement (name),
         // linkName = the name "link_name", value = gets the actual value
-        linkURL: e.target.elements.links.value,
+        // linkURL: e.target.elements.links.value,
         createdAt: new Date().getTime()
     }
     listofItems.push(item);
@@ -48,11 +47,12 @@ function DisplayList () {
         const newItem = document.createElement('div');
         newItem.classList.add('new-item');
        
-        // Create a const that makes the creates an <a> tag
+        // Create a const that creates an <a> tag
         const newLink = document.createElement('a')
         const deleteButton = document.createElement('button')
         deleteButton.innerHTML = '<span class="material-symbols-outlined">delete</span>'
-        newLink.href = thing.linkURL;                          
+        newLink.href = thing.linkURL;   
+                 
     // Ensure that the new target leads to a blank page
         newLink.target = '_blank';
         newLink.innerHTML = thing.linkName;
