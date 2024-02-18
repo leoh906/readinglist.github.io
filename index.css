@@ -1,35 +1,31 @@
 body {
-    /* text-align: center; */
-    background-color: aqua;
+  margin: 0 auto;
 }
 
-#homepage_header {
-    text-align: center;
+#header__container {
+  background-color: black;
+  color: white;
+  display: flex;
+  padding: 1rem;
 }
 
-
-#user_name {
-    border-style: none;
-    background-color: aqua;
-    font-size: large;
-    font-weight: bold;
+ul {
+  list-style-type: none;
+  margin: 0;
+  margin-left: auto;
+  margin-top: auto;
 }
 
-h1 {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: large;
+li {
+  display: inline-block;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+li:visited {
+  text-decoration: none;
+}
+li a {
+  text-decoration: none;
 }
 
-
-a {
-    color: black;
-    text-decoration: none;
-}
-
-#username :hover {
-    border-style: none;
-}
-
-ol {
-    list-style: none;
-}
+/*# sourceMappingURL=index.css.map */
