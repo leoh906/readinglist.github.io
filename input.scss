@@ -3,32 +3,38 @@ body {
 }
 
 #header__container {
-    background-color: black;
     color: white;
+    background-color: black;
     display: flex;
-    padding: 1rem;
+  
+}
+
+#date__container {
+    padding-left: 2rem;
+}
+
+
+#header__menu {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin-left: 50%;
+
+li {
+   padding: 1rem;
+
+   a {
+    text-decoration: none;
+    color: white;
+    &:visited {
+        text-decoration: none;
+    }
+   }
 
     
 }
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    margin-left: auto;
-    margin-top: auto;
 }
-    li {
-        display: inline-block;
-        text-decoration: none;
-        margin: 0 1rem;
 
-        &:visited {
-            text-decoration: none;
-        }
 
-        a {
-            text-decoration: none;
-        }
 
-        
-    }
+  
